@@ -1,0 +1,38 @@
+<template>
+  <h1>${title}</h1>
+  <div id="dwt-viewer" style="width: 100%; height: 50vh;"></div>
+  <div id="dwt-control">
+    <button click.trigger="acquireImage()">Scan</button>
+  </div>
+  <div>
+    <input type="text" value.bind="fileName">
+    <select value.bind="selectFormat">
+      <option repeat.for="format of formats"
+              model.bind="format.id">
+      ${format.text}      
+      </option>
+    </select>
+    <button click.trigger="uploadFile()">Upload</button>
+  </div>
+  <style>
+    #dwt-container {
+      height: 600px;
+      width: 400px;
+    }
+    button {
+      box-sizing: border-box;
+      color: white;
+      background-color: #3585cf;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+    button:hover {
+      background-color: #ffffff;
+      border: 1px solid #3585cf;
+      color: #3585cf;
+      transition: all linear .1s;
+    }
+  </style>
+</template>
